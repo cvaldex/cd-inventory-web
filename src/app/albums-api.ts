@@ -1,14 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Album } from './album';
 
-/**
- * The real API (https://mpeh6k2fke.execute-api.us-east-1.amazonaws.com/v1/albums) only sends
- * Access-Control-Allow-Origin on its OPTIONS preflight, not on the actual GET response, so
- * browsers block it cross-origin. Until that's fixed API-side, `npm start` proxies this relative
- * path to the real endpoint (see proxy.conf.json) so local dev works. A production build has no
- * such proxy and will fail the same CORS check until the API response headers are fixed.
- */
-const ALBUMS_ENDPOINT = '/api/albums';
+const ALBUMS_ENDPOINT = 'https://mpeh6k2fke.execute-api.us-east-1.amazonaws.com/v1/albums';
 
 export type FilterType = 'none' | 'artist' | 'title' | 'status';
 

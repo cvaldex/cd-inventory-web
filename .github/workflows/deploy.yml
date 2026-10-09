@@ -1,0 +1,41 @@
+name: Continuous Deployment
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Unit tests
+        run: npx ng test --watch=false
+
+      - name: Production build
+        run: npm run build-prod
+
+      - name: SPA fallback for deep links
+        run: cp dist/cd-inventory-web/index.html dist/cd-inventory-web/404.html
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/cd-inventory-web
+          publish_branch: gh-pages
+          commit_message: 'deploy ${{ github.sha }}'

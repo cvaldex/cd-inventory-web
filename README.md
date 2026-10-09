@@ -24,25 +24,19 @@ Requiere Node `24.20.0` (ver `.nvmrc`).
 
 ```bash
 npm install
-npm start      # http://localhost:4200
+npm start            # http://localhost:4200
 npm test
-npm run build
+npm run build-prod   # build de producción para GitHub Pages
 ```
 
-## Limitación conocida: CORS
+La app llama a la API directamente desde el navegador. La API responde con
+`Access-Control-Allow-Origin: *`, tanto en las respuestas exitosas como en los errores 400.
 
-La API solo envía `Access-Control-Allow-Origin` en la respuesta al preflight `OPTIONS`,
-no en la respuesta real del `GET`. Por eso los navegadores bloquean las llamadas directas.
+## Despliegue
 
-Mientras eso no se corrija en la API:
-
-- `npm start` levanta el dev server con un proxy (`proxy.conf.json`) que reenvía
-  `/api/albums` a la API real, así que **en desarrollo local funciona**.
-- Un **build de producción no funciona**: no hay proxy y la ruta relativa `/api/albums`
-  no existe en un hosting estático.
-
-Cuando la API devuelva el header CORS también en el `GET`, basta con apuntar
-`ALBUMS_ENDPOINT` en `src/app/albums-api.ts` a la URL absoluta de la API.
+Cada push a `main` ejecuta `.github/workflows/deploy.yml`: corre los tests, hace el build
+de producción y lo publica en la rama `gh-pages`. El sitio queda en
+<https://cvaldex.github.io/cd-inventory-web/>.
 
 ## Estructura
 
@@ -52,5 +46,5 @@ src/app/
   albums-api.ts        # cliente de la API
   album-list/          # pantalla principal (búsqueda, tabla, paginación)
 fixtures/              # respuestas de ejemplo de la API
-proxy.conf.json        # proxy del dev server (ver CORS)
+.github/workflows/     # despliegue a GitHub Pages
 ```
