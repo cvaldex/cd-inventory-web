@@ -5,6 +5,21 @@ import { AlbumsApi, FilterType } from '../albums-api';
 
 type SortField = 'artist' | 'title' | 'type' | 'year';
 
+/** The API rejects any double quote in searchText (400), so quotes are never sent nor compared. */
+const stripQuotes = (value: string) => value.replaceAll('"', '');
+
+/** Text wrapped in double quotes means "exact match"; the term itself never carries quotes. */
+export function parseSearchText(raw: string): { term: string; exact: boolean } {
+  const text = raw.trim();
+  const exact = text.length > 2 && text.startsWith('"') && text.endsWith('"');
+  return { term: stripQuotes(text).trim(), exact };
+}
+
+/** Exact match ignoring case, accents, surrounding spaces and quotes. */
+function matchesExactly(value: string, term: string): boolean {
+  return stripQuotes(value).trim().localeCompare(term, 'es', { sensitivity: 'base' }) === 0;
+}
+
 @Component({
   selector: 'app-album-list',
   imports: [],
@@ -32,9 +47,11 @@ export class AlbumList {
     () => this.filterField() === 'artist' || this.filterField() === 'title',
   );
 
+  readonly searchTerm = computed(() => parseSearchText(this.searchText()));
+
   readonly needsAction = computed(() => {
     if (this.loading() || this.error()) return false;
-    if (this.isTextMode()) return this.searchText().trim() === '';
+    if (this.isTextMode()) return this.searchTerm().term === '';
     if (this.filterField() === 'status') return this.statusValue() === '';
     return this.results().length === 0;
   });
@@ -57,7 +74,7 @@ export class AlbumList {
     this.filterField() === 'none' ? 'Ver todo el catálogo' : 'Buscar',
   );
   readonly actionDisabled = computed(
-    () => this.loading() || (this.isTextMode() && this.searchText().trim() === ''),
+    () => this.loading() || (this.isTextMode() && this.searchTerm().term === ''),
   );
 
   readonly hasResults = computed(
@@ -114,7 +131,7 @@ export class AlbumList {
   }
 
   onSearchKeydown(event: KeyboardEvent): void {
-    if (event.key === 'Enter' && this.searchText().trim() !== '') {
+    if (event.key === 'Enter' && this.searchTerm().term !== '') {
       void this.runSearch();
     }
   }
@@ -148,18 +165,24 @@ export class AlbumList {
   }
 
   async runSearch(): Promise<void> {
-    if (this.isTextMode() && this.searchText().trim() === '') return;
-    if (this.filterField() === 'status' && this.statusValue() === '') return;
+    const field = this.filterField();
+    const { term, exact } = this.searchTerm();
+    if (this.isTextMode() && term === '') return;
+    if (field === 'status' && this.statusValue() === '') return;
 
     this.loading.set(true);
     this.error.set(null);
 
-    const searchText =
-      this.filterField() === 'status' ? this.statusValue() : this.searchText().trim();
+    const searchText = field === 'status' ? this.statusValue() : term;
 
     try {
-      const results = await this.albumsApi.search(this.filterField(), searchText);
-      this.results.set(results);
+      // An exact search asks the API for the substring and narrows the candidates here.
+      const results = await this.albumsApi.search(field, searchText);
+      this.results.set(
+        exact && (field === 'artist' || field === 'title')
+          ? results.filter((a) => matchesExactly(a[field], term))
+          : results,
+      );
       this.typeFilter.set('');
       this.page.set(1);
     } catch (err) {

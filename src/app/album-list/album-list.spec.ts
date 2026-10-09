@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { Album } from '../album';
-import { AlbumList } from './album-list';
+import { AlbumList, parseSearchText } from './album-list';
 
 function rawAlbum(overrides: Partial<Record<string, string>> = {}) {
   return {
@@ -25,6 +25,21 @@ function mockFetchResolved(albums: ReturnType<typeof rawAlbum>[]) {
   vi.stubGlobal('fetch', fetchMock);
   return fetchMock;
 }
+
+describe('parseSearchText', () => {
+  it('treats text wrapped in double quotes as an exact search', () => {
+    expect(parseSearchText('  "ram"  ')).toEqual({ term: 'ram', exact: true });
+  });
+
+  it('treats unquoted or half-quoted text as a normal search, without quotes', () => {
+    expect(parseSearchText('ram')).toEqual({ term: 'ram', exact: false });
+    expect(parseSearchText('"ram')).toEqual({ term: 'ram', exact: false });
+  });
+
+  it('treats empty quotes as an empty term', () => {
+    expect(parseSearchText('""').term).toBe('');
+  });
+});
 
 describe('AlbumList', () => {
   beforeEach(async () => {
@@ -54,6 +69,50 @@ describe('AlbumList', () => {
     expect(url).not.toContain('filterType');
     expect(componentInstance.results().length).toBe(1);
     expect(componentInstance.needsAction()).toBe(false);
+  });
+
+  it('sends a quoted search without quotes and keeps only exact matches', async () => {
+    const fetchMock = mockFetchResolved([
+      rawAlbum({ title: 'Ram' }),
+      rawAlbum({ artist: 'Judas Priest', title: 'Ram It Down' }),
+      rawAlbum({ artist: 'Aisles', title: 'Beyond Drama' }),
+    ]);
+    const { componentInstance } = TestBed.createComponent(AlbumList);
+    componentInstance.onFilterFieldChange('title');
+    componentInstance.onSearchTextInput('"ram"');
+
+    await componentInstance.runSearch();
+
+    const [url] = fetchMock.mock.calls[0];
+    expect(url).toContain('searchText=ram');
+    expect(url).not.toContain('%22');
+    expect(componentInstance.results().map((a) => a.title)).toEqual(['Ram']);
+  });
+
+  it('matches exactly ignoring case, accents and surrounding spaces', async () => {
+    mockFetchResolved([
+      rawAlbum({ artist: 'Kiss', title: 'Dressed to Kill ' }),
+      rawAlbum({ artist: 'Kiss', title: 'Dressed to Kill (Remastered)' }),
+      rawAlbum({ artist: 'Gustavo Cerati', title: 'Bocanada' }),
+    ]);
+    const { componentInstance } = TestBed.createComponent(AlbumList);
+    componentInstance.onFilterFieldChange('title');
+    componentInstance.onSearchTextInput('"dressed to kill"');
+    await componentInstance.runSearch();
+    expect(componentInstance.results().map((a) => a.title)).toEqual(['Dressed to Kill ']);
+
+    componentInstance.onFilterFieldChange('artist');
+    componentInstance.onSearchTextInput('"GUSTAVO CERATÍ"');
+    await componentInstance.runSearch();
+    expect(componentInstance.results().map((a) => a.artist)).toEqual(['Gustavo Cerati']);
+  });
+
+  it('disables the search for empty quotes', () => {
+    const { componentInstance } = TestBed.createComponent(AlbumList);
+    componentInstance.onFilterFieldChange('artist');
+    componentInstance.onSearchTextInput('""');
+
+    expect(componentInstance.actionDisabled()).toBe(true);
   });
 
   it('does not search by text until a non-empty value is provided', async () => {

@@ -4,6 +4,8 @@ Sitio web para explorar un inventario personal de CDs. Consume la API de álbume
 (`https://mpeh6k2fke.execute-api.us-east-1.amazonaws.com/v1/albums`) y permite:
 
 - Buscar por **artista** o **título** (texto, con botón Buscar o Enter) o por **estado** (OK / Pendientes).
+  Si el texto va **entre comillas** (`"ram"`), solo devuelve coincidencias exactas, sin distinguir
+  mayúsculas ni acentos. Sin comillas, busca el texto en cualquier parte del campo.
 - Ver el **catálogo completo** con una acción explícita (no se carga nada al entrar).
 - Filtrar los resultados por **tipo** (Estudio, Live, Single, etc.).
 - **Ordenar** haciendo clic en las columnas Artista, Título, Tipo y Año.
