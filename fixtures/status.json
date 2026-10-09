@@ -1,0 +1,413 @@
+{
+"statusCode": 200,
+"statusMessage": "OK",
+"filteredBy": "status",
+"resultsFound": 45,
+"albums": [
+{
+"artist": "Aisles",
+"title": "The Yearning",
+"type": "Estudio",
+"year": "2005",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Aisles",
+"title": "Beyond Drama",
+"type": "Estudio",
+"year": "2023",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Blind Guardian",
+"title": "Live",
+"type": "Live",
+"year": "2003",
+"notes": "Edición japonesa",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Chris Cornell",
+"title": "Higher Truth",
+"type": "Estudio",
+"year": "2015",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "David Gilmour",
+"title": "Luck And Strange",
+"type": "Estudio",
+"year": "2024",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Deep Purple",
+"title": "\"=1\"",
+"type": "Estudio",
+"year": "2024",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Divididos",
+"title": "Divididos",
+"type": "Estudio",
+"year": "2025",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Dream Theater",
+"title": "Santiago, Chile 06/12/2005",
+"type": "Bootleg",
+"year": "2005",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Dream Theater",
+"title": "Live at Luna Park",
+"type": "Live",
+"year": "2013",
+"notes": "Edición 3CD + DVD",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Dream Theater",
+"title": "Quarantième: Live à Paris",
+"type": "Live",
+"year": "2025",
+"notes": "CD + Bluray",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Dream Theater",
+"title": "Lost Not Forgotten Archives: Live In tokyo, 2010",
+"type": "Live",
+"year": "2026",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Edguy",
+"title": "Kingdom Of Madness",
+"type": "Estudio",
+"year": "1997",
+"notes": "Edición 2012",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Foo Fighters",
+"title": "Your Favorite Toy",
+"type": "Estudio",
+"year": "2026",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Guns N' Roses",
+"title": "Appetite For Destruction (Expanded Edition)",
+"type": "Estudio",
+"year": "2018",
+"notes": "4 CD",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Gustavo Cerati",
+"title": "Amor Amarillo",
+"type": "Estudio",
+"year": "1993",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Gustavo Cerati",
+"title": "Bocanada",
+"type": "Estudio",
+"year": "1999",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Gustavo Cerati",
+"title": "Siempre Es Hoy",
+"type": "Estudio",
+"year": "2002",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Hammerfall",
+"title": "Chapter V: Unbent, Unbowed, Unbroken",
+"type": "Estudio",
+"year": "2005",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Hammerfall",
+"title": "Threshold",
+"type": "Estudio",
+"year": "2006",
+"notes": "Edición Japonesa",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Helloween",
+"title": "Keeper Of The Seven Keys: The Legacy",
+"type": "Estudio",
+"year": "2005",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Helloween",
+"title": "Giants & Monsters",
+"type": "Estudio",
+"year": "2025",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Hermanos Ilabaca",
+"title": "HI",
+"type": "Estudio",
+"year": "2023",
+"notes": "Edición física de 2025",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Jeff Buckley",
+"title": "Mystery White Boy",
+"type": "Live",
+"year": "2000",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Judas Priest",
+"title": "Redeemer Of The Souls",
+"type": "Estudio",
+"year": "2014",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Kiss",
+"title": "Destroys Anaheim '76",
+"type": "Live",
+"year": "2026",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "La Ley",
+"title": "La Ley MTV Unplugged",
+"type": "Live",
+"year": "2001",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Megadeth",
+"title": "Megadeth",
+"type": "Estudio",
+"year": "2026",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Metallica",
+"title": "Load (Remastered Expanded Edition)",
+"type": "Estudio",
+"year": "2025",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Nightwish",
+"title": "End Of An Era",
+"type": "Live",
+"year": "2006",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Paul McCartney",
+"title": "The Boys of Dungeon Lane",
+"type": "Estudio",
+"year": "2026",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Pink Floyd",
+"title": "At Pompeii MCMLXXII",
+"type": "Live",
+"year": "2025",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Porcupine Tree",
+"title": "Anesthetize",
+"type": "Live",
+"year": "2010",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Rhapsody",
+"title": "Dawn Of Victory",
+"type": "Estudio",
+"year": "2000",
+"notes": "Edición japonesa",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Smith/Kotzen",
+"title": "Black Light / White Noise",
+"type": "Estudio",
+"year": "2025",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Soen",
+"title": "Atlantis",
+"type": "Live",
+"year": "2022",
+"notes": "Edición con DVD",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Steven Wilson",
+"title": "Insurgentes",
+"type": "Estudio",
+"year": "2009",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Steven Wilson",
+"title": "Grace For Drowning",
+"type": "Estudio",
+"year": "2011",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Stratovarius",
+"title": "Infinite",
+"type": "Estudio",
+"year": "2000",
+"notes": "Edición Japonesa",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Symphony X",
+"title": "The Odyssey",
+"type": "Estudio",
+"year": "2002",
+"notes": "Edición japonesa",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Symphony X",
+"title": "Iconoclast",
+"type": "Estudio",
+"year": "2011",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "The Beach Boys",
+"title": "Pet Sounds",
+"type": "Estudio",
+"year": "1966",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "The Beatles",
+"title": "Anthology 4",
+"type": "Compilación",
+"year": "2025",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "The Neal Morse Band",
+"title": "L.I.F.T.",
+"type": "Estudio",
+"year": "2026",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "The Rolling Stones",
+"title": "Exile on Main St.",
+"type": "Estudio",
+"year": "1972",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+},
+{
+"artist": "Van Halen",
+"title": "Van Halen III",
+"type": "Estudio",
+"year": "1998",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+}
+]
+}

@@ -1,0 +1,277 @@
+{
+"statusCode": 200,
+"statusMessage": "OK",
+"filteredBy": "artist",
+"resultsFound": 27,
+"albums": [
+{
+"artist": "Paul McCartney",
+"title": "McCartney",
+"type": "Estudio",
+"year": "1970",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CnauzrIO4a0"
+},
+{
+"artist": "Paul McCartney",
+"title": "Ram",
+"type": "Estudio",
+"year": "1971",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/DLOcyROuRiZ"
+},
+{
+"artist": "Paul McCartney",
+"title": "McCartney II",
+"type": "Estudio",
+"year": "1980",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CnauzrIO4a0"
+},
+{
+"artist": "Paul McCartney",
+"title": "Tug Of War",
+"type": "Estudio",
+"year": "1982",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CdUczQdubUf"
+},
+{
+"artist": "Paul McCartney",
+"title": "Pipes Of Peace",
+"type": "Estudio",
+"year": "1983",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CX7eLNluUrA"
+},
+{
+"artist": "Paul McCartney",
+"title": "Press To Play",
+"type": "Estudio",
+"year": "1986",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/DUcCO_-Ar1o"
+},
+{
+"artist": "Paul McCartney",
+"title": "CHOBA B CCCP",
+"type": "Estudio",
+"year": "1988",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/DLbVPGvuZf9"
+},
+{
+"artist": "Paul McCartney",
+"title": "Flowers In The Dirt",
+"type": "Estudio",
+"year": "1989",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CRfe9U_DbQY"
+},
+{
+"artist": "Paul McCartney",
+"title": "Tripping The Live Fantastic",
+"type": "Live",
+"year": "1990",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CGyeGarj0Zt"
+},
+{
+"artist": "Paul McCartney",
+"title": "Unplugged (The Official Bootleg)",
+"type": "Live",
+"year": "1991",
+"notes": "Edición Japonesa",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CMqIW_RBmTW"
+},
+{
+"artist": "Paul McCartney",
+"title": "Off The Ground",
+"type": "Estudio",
+"year": "1993",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CXCtUj6O4Zu"
+},
+{
+"artist": "Paul McCartney",
+"title": "Paul Is Live",
+"type": "Live",
+"year": "1993",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CBmlIB9jgVu"
+},
+{
+"artist": "Paul McCartney",
+"title": "Flaming Pie",
+"type": "Estudio",
+"year": "1997",
+"notes": "Paul McCartney Archive Collection",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CTLoNoCjeW7"
+},
+{
+"artist": "Paul McCartney",
+"title": "Run Devil Run",
+"type": "Estudio",
+"year": "1999",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CN6UGVyDmLi"
+},
+{
+"artist": "Paul McCartney",
+"title": "Driving Rain",
+"type": "Estudio",
+"year": "2001",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CZfhcHYuvO-"
+},
+{
+"artist": "Paul McCartney",
+"title": "Back in the U.S.",
+"type": "Live",
+"year": "2002",
+"notes": "Edición Japonesa",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CNQA-41hF3a"
+},
+{
+"artist": "Paul McCartney",
+"title": "Back in the World",
+"type": "Live",
+"year": "2003",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CNQA-41hF3a"
+},
+{
+"artist": "Paul McCartney",
+"title": "Chaos And Creation In The Backyard",
+"type": "Estudio",
+"year": "2005",
+"notes": "Edicion The US Tour Presented By Lexus",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CgBHZWnOo2f"
+},
+{
+"artist": "Paul McCartney",
+"title": "Motor Of Love",
+"type": "Estudio",
+"year": "2005",
+"notes": "Edicion The US Tour Presented By Lexus",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CgBHZWnOo2f"
+},
+{
+"artist": "Paul McCartney",
+"title": "Memory Almost Full",
+"type": "Estudio",
+"year": "2007",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/COYtU8yjHTU"
+},
+{
+"artist": "Paul McCartney",
+"title": "Good Evening New York City",
+"type": "Live",
+"year": "2009",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CC94CSzDCMU"
+},
+{
+"artist": "Paul McCartney",
+"title": "Kisses On The Bottom",
+"type": "Estudio",
+"year": "2012",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CeKi8moOdkk"
+},
+{
+"artist": "Paul McCartney",
+"title": "New",
+"type": "Estudio",
+"year": "2013",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CqWq9oMOK_X"
+},
+{
+"artist": "Paul McCartney",
+"title": "Pure McCartney",
+"type": "Compilación",
+"year": "2016",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/BoAsLKfB7dR"
+},
+{
+"artist": "Paul McCartney",
+"title": "Egypt Station",
+"type": "Estudio",
+"year": "2018",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/DWe6weSib_j"
+},
+{
+"artist": "Paul McCartney",
+"title": "McCartney III",
+"type": "Estudio",
+"year": "2020",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CnauzrIO4a0"
+},
+{
+"artist": "Paul McCartney",
+"title": "The Boys of Dungeon Lane",
+"type": "Estudio",
+"year": "2026",
+"notes": "",
+"status": "Pending",
+"instagram": "no"
+}
+]
+}

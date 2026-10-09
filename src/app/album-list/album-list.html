@@ -1,0 +1,238 @@
+<main class="page">
+  <section class="app">
+    <h1 class="app-title">Vitrina de Colección</h1>
+    <p class="app-sub">Inventario de CDs — busca, ordena y revisa tu colección.</p>
+
+    <div class="toolbar">
+      <div class="toolbar-row">
+        <div class="field-group">
+          <label for="filterField">Buscar por</label>
+          <select
+            id="filterField"
+            [value]="filterField()"
+            (change)="onFilterFieldChange($any($event.target).value)"
+          >
+            <option value="none">Todos</option>
+            <option value="artist">Artista</option>
+            <option value="title">Título</option>
+            <option value="status">Estado</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          @switch (filterField()) {
+            @case ('artist') {
+              <label for="searchText">Texto (artista)</label>
+              <input
+                id="searchText"
+                type="text"
+                placeholder="Ej: mccartney"
+                autocomplete="off"
+                [value]="searchText()"
+                (input)="onSearchTextInput($any($event.target).value)"
+                (keydown)="onSearchKeydown($event)"
+              />
+            }
+            @case ('title') {
+              <label for="searchText">Texto (título)</label>
+              <input
+                id="searchText"
+                type="text"
+                placeholder="Ej: number"
+                autocomplete="off"
+                [value]="searchText()"
+                (input)="onSearchTextInput($any($event.target).value)"
+                (keydown)="onSearchKeydown($event)"
+              />
+            }
+            @case ('status') {
+              <label for="statusValue">Estado</label>
+              <select
+                id="statusValue"
+                [value]="statusValue()"
+                (change)="onStatusChange($any($event.target).value)"
+              >
+                <option value="">Selecciona un estado…</option>
+                <option value="OK">OK (en la colección)</option>
+                <option value="Pending">Pendientes</option>
+              </select>
+            }
+          }
+        </div>
+
+        @if (actionVisible()) {
+          <div class="field-group">
+            <label aria-hidden="true">&nbsp;</label>
+            <button
+              type="button"
+              class="searchbtn"
+              [disabled]="actionDisabled()"
+              (click)="runSearch()"
+            >
+              {{ actionLabel() }}
+            </button>
+            @if (isTextMode()) {
+              <span class="enter-hint">o presiona Enter</span>
+            }
+          </div>
+        }
+
+        @if (hasResults()) {
+          <div class="field-group">
+            <label for="typeFilter">Tipo</label>
+            <select
+              id="typeFilter"
+              [value]="typeFilter()"
+              (change)="onTypeFilterChange($any($event.target).value)"
+            >
+              <option value="">Todos</option>
+              @for (type of availableTypes(); track type) {
+                <option [value]="type">{{ type }}</option>
+              }
+            </select>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="meta-row">
+      @if (hasResults()) {
+        <span
+          ><strong>{{ sortedResults().length }}</strong> resultado{{
+            sortedResults().length === 1 ? '' : 's'
+          }}
+          encontrado{{ sortedResults().length === 1 ? '' : 's' }}</span
+        >
+      }
+    </div>
+
+    <div class="results-area">
+      @if (loading()) {
+        @for (row of skeletonRows; track $index) {
+          <div class="skeleton-row"></div>
+        }
+      } @else if (error()) {
+        <div class="state-panel is-error">
+          ⚠ {{ error() }}
+          <br />
+          <button type="button" class="retry" (click)="retry()">Reintentar</button>
+        </div>
+      } @else if (needsAction()) {
+        <div class="state-panel is-prompt">{{ promptMessage() }}</div>
+      } @else if (pagedResults().length === 0) {
+        <div class="state-panel">Sin resultados para tu búsqueda.</div>
+      } @else {
+        <div class="table-scroll">
+          <table class="datatable">
+            <thead>
+              <tr>
+                <th>
+                  <button type="button" class="sortbtn" (click)="toggleSort('artist')">
+                    Artista
+                    @if (sortField() === 'artist') {
+                      <span class="arrow">{{ sortDir() === 'asc' ? '▲' : '▼' }}</span>
+                    }
+                  </button>
+                </th>
+                <th>
+                  <button type="button" class="sortbtn" (click)="toggleSort('title')">
+                    Título
+                    @if (sortField() === 'title') {
+                      <span class="arrow">{{ sortDir() === 'asc' ? '▲' : '▼' }}</span>
+                    }
+                  </button>
+                </th>
+                <th>
+                  <button type="button" class="sortbtn" (click)="toggleSort('type')">
+                    Tipo
+                    @if (sortField() === 'type') {
+                      <span class="arrow">{{ sortDir() === 'asc' ? '▲' : '▼' }}</span>
+                    }
+                  </button>
+                </th>
+                <th>
+                  <button type="button" class="sortbtn" (click)="toggleSort('year')">
+                    Año
+                    @if (sortField() === 'year') {
+                      <span class="arrow">{{ sortDir() === 'asc' ? '▲' : '▼' }}</span>
+                    }
+                  </button>
+                </th>
+                <th>Estado</th>
+                <th>Instagram</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (album of pagedResults(); track album.artist + album.title + album.year) {
+                <tr>
+                  <td data-label="Artista">{{ album.artist }}</td>
+                  <td data-label="Título">
+                    {{ album.title }}
+                    @if (album.notes) {
+                      <span
+                        class="note-icon"
+                        tabindex="0"
+                        [attr.aria-label]="'Observación: ' + album.notes"
+                      >
+                        <span class="note-icon__mark" aria-hidden="true">i</span>
+                        <span class="note-icon__bubble" role="tooltip">{{ album.notes }}</span>
+                      </span>
+                    }
+                  </td>
+                  <td data-label="Tipo">{{ album.type }}</td>
+                  <td data-label="Año">{{ album.year }}</td>
+                  <td data-label="Estado">
+                    <span
+                      class="badge"
+                      [class.ok]="album.status === 'OK'"
+                      [class.pending]="album.status !== 'OK'"
+                    >
+                      {{ album.status === 'OK' ? 'OK' : 'Pendiente' }}
+                    </span>
+                  </td>
+                  <td data-label="Instagram">
+                    @if (album.instagram === 'yes' && album.linkInstagram) {
+                      <a
+                        class="ig-link"
+                        [href]="album.linkInstagram"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Instagram ↗</a
+                      >
+                    } @else {
+                      <span class="ig-none">—</span>
+                    }
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pagination">
+          <button
+            type="button"
+            class="pgbtn"
+            title="Página anterior"
+            aria-label="Página anterior"
+            [disabled]="page() <= 1"
+            (click)="goToPage(-1)"
+          >
+            <span aria-hidden="true">←</span>
+          </button>
+          <span class="pg-current">Página {{ page() }} de {{ totalPages() }}</span>
+          <button
+            type="button"
+            class="pgbtn"
+            title="Página siguiente"
+            aria-label="Página siguiente"
+            [disabled]="page() >= totalPages()"
+            (click)="goToPage(1)"
+          >
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      }
+    </div>
+  </section>
+</main>

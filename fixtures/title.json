@@ -1,0 +1,68 @@
+{
+"statusCode": 200,
+"statusMessage": "OK",
+"filteredBy": "title",
+"resultsFound": 6,
+"albums": [
+{
+"artist": "Dream Theater",
+"title": "Lost Not Forgotten Archives: The Number Of The Beast (2002)",
+"type": "Live",
+"year": "2022",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/Cj_3GaFu5LZ"
+},
+{
+"artist": "Iron Maiden",
+"title": "The Number Of The Beast",
+"type": "Estudio",
+"year": "1982",
+"notes": "Versión Original",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/B-C9gTzniOR"
+},
+{
+"artist": "Iron Maiden",
+"title": "The Number Of The Beast",
+"type": "Estudio",
+"year": "1982",
+"notes": "Versión 1998",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/B-C9gTzniOR"
+},
+{
+"artist": "Iron Maiden",
+"title": "The First Ten Years: Run to the Hills / The Number of the Beast",
+"type": "Single",
+"year": "1990",
+"notes": "Edición japonesa",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://instagram.com/p/CRiCDg3D6zl"
+},
+{
+"artist": "Iron Maiden",
+"title": "The Number Of The Beast",
+"type": "Single",
+"year": "2005",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/CrkNSwquQmv"
+},
+{
+"artist": "Ozzy Osbourne",
+"title": "Patient Number 9",
+"type": "Estudio",
+"year": "2022",
+"notes": "",
+"status": "OK",
+"instagram": "yes",
+"link_instagram": "https://www.instagram.com/p/Cm71OZ-Os8V"
+}
+]
+}

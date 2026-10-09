@@ -1,0 +1,47 @@
+/* ---------- design tokens: "Vitrina de Colección" ---------- */
+:root {
+  --font-display: 'Poppins', system-ui, sans-serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --page-bg: #eeeadd;
+  --surface: #f7f3e8;
+  --border: #ddd4ba;
+  --text: #2c2a24;
+  --muted: #8a8270;
+  --accent: #6b7a4f;
+  --accent-contrast: #fbfaf5;
+  --danger: #b2583f;
+
+  --control-bg: #fffdf8;
+  --row-hover: #efe9d8;
+
+  --badge-ok-bg: #aeb88f;
+  --badge-ok-fg: #333a1f;
+  --badge-pending-bg: #e6dfca;
+  --badge-pending-fg: #6b6350;
+
+  --skeleton-a: #ece5d3;
+  --skeleton-b: #f7f3e8;
+
+  --radius: 18px;
+  --radius-control: 10px;
+}
+
+/* ---------- base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--page-bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
